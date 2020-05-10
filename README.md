@@ -79,7 +79,7 @@ chdir rmdir remove unlink
 opendir
 
 // two args and return int
-mkdir create creat64 chmod open open64
+mkdir create creat64 chmod
 
 // two args and return ptr
 fopen fopen64
@@ -88,7 +88,7 @@ fopen fopen64
 rename symlink link
 
 // three args and return int/ssize_t
-chown readlink __xstat __xstat64
+open open64 chown readlink __xstat __xstat64
 
 // four args and return int
 openat openat64

@@ -159,8 +159,6 @@ HIJACK_2_ARG_RET_INT(int, mkdir,   const char *, pathname, mode_t, mode)
 HIJACK_2_ARG_RET_INT(int, creat,   const char *, pathname, mode_t, mode)
 HIJACK_2_ARG_RET_INT(int, creat64, const char *, pathname, mode_t, mode)
 HIJACK_2_ARG_RET_INT(int, chmod,   const char *, pathname, mode_t, mode)
-HIJACK_2_ARG_RET_INT(int, open,    const char *, pathname,    int, flags)
-HIJACK_2_ARG_RET_INT(int, open64,  const char *, pathname,    int, flags)
 
 HIJACK_2_ARG_RET_PTR(FILE *,   fopen, const char *, pathname, const char *, mode)
 HIJACK_2_ARG_RET_PTR(FILE *, fopen64, const char *, pathname, const char *, mode)
@@ -169,8 +167,10 @@ HIJACK_2_ARG_RET_INT_2_PATH(int,  rename, const char *, oldpath, const char *, n
 HIJACK_2_ARG_RET_INT_2_PATH(int, symlink, const char *,  target, const char *, linkpath)
 HIJACK_2_ARG_RET_INT_2_PATH(int,    link, const char *, oldpath, const char *, newpath)
 
-HIJACK_3_ARG_RET_INT(int,        chown, const char *, pathname,        uid_t, owner,         gid_t, group,    pathname)
-HIJACK_3_ARG_RET_INT(ssize_t, readlink, const char *, pathname,       char *,   buf,        size_t, bufsiz,   pathname)
+HIJACK_3_ARG_RET_INT(int,         open, const char *, pathname,          int, flags,        mode_t,     mode, pathname)
+HIJACK_3_ARG_RET_INT(int,       open64, const char *, pathname,          int, flags,        mode_t,     mode, pathname)
+HIJACK_3_ARG_RET_INT(int,        chown, const char *, pathname,        uid_t, owner,         gid_t,    group, pathname)
+HIJACK_3_ARG_RET_INT(ssize_t, readlink, const char *, pathname,       char *,   buf,        size_t,   bufsiz, pathname)
 HIJACK_3_ARG_RET_INT(int,      __xstat,          int,      ver, const char *,  path, struct stat *, stat_buf, path)
 HIJACK_3_ARG_RET_INT(int,    __xstat64,          int,      ver, const char *,  path, struct stat *, stat_buf, path)
 
