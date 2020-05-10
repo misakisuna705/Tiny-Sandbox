@@ -4,8 +4,6 @@
 
 * [使用方式](#使用方式)
     - [編譯](#編譯)
-        + [make](#make)
-        + [cmake](#cmake)
     - [執行](#執行)
     - [清理](#清理)
 * [專案結構](#專案結構)
@@ -19,24 +17,8 @@
 
 ### 編譯
 
-#### make
-
 ```zsh
 make
-```
-
-#### cmake
-
--   cmake with make
-
-```zsh
-cmake . -DCMAKE_BUILD_TYPE=Release -Bbuild/release && make -C ./build/release
-```
-
--   cmake with ninja
-
-```zsh
-cmake . -GNinja -DCMAKE_BUILD_TYPE=Release -Bbuild/release && ninja -C ./build/release
 ```
 
 ### 執行
@@ -44,13 +26,13 @@ cmake . -GNinja -DCMAKE_BUILD_TYPE=Release -Bbuild/release && ninja -C ./build/r
 -   make
 
 ```zsh
-make run
+make run ARG="xxx"
 ```
 
 -   exe
 
 ```zsh
-bin/Netstat_Sim
+bin/main xxx
 ```
 
 ### 清理
@@ -64,45 +46,34 @@ make clean
 ```zsh
 ❯ tree
 .
-├── CMakeLists.txt
 ├── LICENSE
 ├── Makefile
 ├── README.md
 ├── bin
-│   └── Netstat_Sim
+│   ├── main
+│   └── sandbox.so
 ├── build
-│   ├── info.o
-│   ├── ip.o
 │   ├── main.o
-│   └── process.o
+│   └── sandbox.o
+├── core
+├── doc
+│   └── img
 ├── include
-│   ├── info.h
-│   ├── ip.h
-│   ├── main.h
-│   └── process.h
+├── lib
 └── src
-    ├── info.c
-    ├── ip.c
     ├── main.c
-    └── process.c
+    └── sandbox
+        └── sandbox.c
 
-4 directories, 17 files
+8 directories, 10 files
 ```
 
 ## 執行結果
 
--   show with sudo / no sudo
+-   regular
 
 ![01](doc/img/01.png)
 
--   show all
+-   other
 
 ![02](doc/img/02.png)
-
--   show part
-
-![03](doc/img/03.png)
-
--   show with regex filter
-
-![04](doc/img/04.png)
