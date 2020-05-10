@@ -7,6 +7,7 @@
     - [執行](#執行)
     - [清理](#清理)
 * [專案結構](#專案結構)
+* [函式劫持](#函式劫持)
 * [執行結果](#執行結果)
 
 <!-- vim-markdown-toc -->
@@ -66,6 +67,34 @@ make clean
         └── sandbox.c
 
 8 directories, 10 files
+```
+
+## 函式劫持
+
+```c
+// one arg and return int
+chdir rmdir remove unlink
+
+// one arg and return ptr
+opendir
+
+// two args and return int
+mkdir create creat64 chmod open open64
+
+// two args and return ptr
+fopen fopen64
+
+// two args and return int with two paths checking
+rename symlink link
+
+// three args and return int/ssize_t
+chown readlink __xstat __xstat64
+
+// four args and return int
+openat openat64
+
+// system and exec checking
+system execv execvp execve execl execlp execle
 ```
 
 ## 執行結果
